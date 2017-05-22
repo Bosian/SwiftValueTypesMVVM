@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>EVReflection.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-POPMVVM.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>64A8768D221CF9262439744ED93E4425</key>
+		<key>4BC4435410E653A2001E693316B6749D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7C46C4D41C63AD73D87024A75EE429DC</key>
+		<key>A6B1D51E619BC7BFE94B9502E65B4B34</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B5D71422744C492B01E50ED6F6AC62E5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D9A2E2A22BA7320F9FDDADCD9C574689</key>
+		<key>F552018654DB323E7B5BBC3C702F6027</key>
 		<dict>
 			<key>primary</key>
 			<true/>

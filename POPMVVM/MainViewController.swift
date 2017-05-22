@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
     
     @IBAction func handler(_ sender: UIButton) {
         
-        let now = Date().toString("yyyy/MM/dd HH:mm:ss", locale: Locale.current, timeZone: TimeZone.default)
+        let now = Date().toString("yyyy/MM/dd HH:mm:ss", locale: .current, timeZone: .current)
         
         viewModel.now = now
         
@@ -76,7 +76,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let now = Date().toString("yyyy/MM/dd HH:mm:ss", locale: Locale.current, timeZone: TimeZone.default)
+        let now = Date().toString("yyyy/MM/dd HH:mm:ss", locale: .current, timeZone: .current)
         viewModel.cellViewModels[indexPath.row].title = now
     }
 }
