@@ -9,7 +9,7 @@
 import UIKit
 import ValueTypesFramework
 
-class MainTableViewCell: UITableViewCell, Viewer, Binder {
+class MainTableViewCell: UITableViewCell, Viewer {
 
     @IBOutlet weak var label: UILabel!
     
@@ -17,16 +17,6 @@ class MainTableViewCell: UITableViewCell, Viewer, Binder {
     var viewModel: ViewModelType! {
         didSet {
             label.text = viewModel.title
-        }
-    }
-    
-    var dataContext: Any? {
-        get {
-            return viewModel
-        }
-        
-        set {
-            viewModel = newValue as! ViewModelType
         }
     }
 }

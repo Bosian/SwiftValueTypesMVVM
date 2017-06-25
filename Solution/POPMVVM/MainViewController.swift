@@ -9,7 +9,7 @@
 import UIKit
 import ValueTypesFramework
 
-class MainViewController: UIViewController, Viewer, Binder, Keyboarder, UITextFieldDelegate {
+class MainViewController: UIViewController, Viewer, Keyboarder, UITextFieldDelegate {
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var text1: UITextField!
@@ -26,16 +26,6 @@ class MainViewController: UIViewController, Viewer, Binder, Keyboarder, UITextFi
             imageView.image = viewModel.image
             
             tableView.reloadData()
-        }
-    }
-    
-    var dataContext: Any? {
-        get {
-            return viewModel
-        }
-        
-        set {
-            viewModel = newValue as! ViewModelType
         }
     }
     
