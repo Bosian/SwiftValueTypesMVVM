@@ -9,10 +9,8 @@
 import Library
 import PromiseKit
 
-public protocol HttpPostWithJson: WebAPIProtocol
+public protocol HttpPostWithJson: WebAPIProtocol where TParameter: JsonSerializeable
 {
-    associatedtype TParameter: JsonSerializeable
-    
     /**
      * Http Post with Raw Json
      */

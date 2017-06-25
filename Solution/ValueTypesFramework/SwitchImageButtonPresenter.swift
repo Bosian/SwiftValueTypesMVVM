@@ -11,9 +11,8 @@ import UIKit
 /**
  *  CellViewModel UIButton 模擬checkbox 變更
  */
-public protocol SwitchImageButtonPresenter: Viewer
+public protocol SwitchImageButtonPresenter: Viewer where ViewModelType: SwitchChangeable
 {
-    associatedtype ViewModelType: SwitchChangeable
     func handleSwitchImageButton(_ view: UIButton, viewModel: ViewModelType)
 }
 

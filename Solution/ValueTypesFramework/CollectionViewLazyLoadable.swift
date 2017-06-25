@@ -8,10 +8,7 @@
 
 import UIKit
 
-public protocol CollectionViewLazyLoadable: Viewer {
-    
-    associatedtype ViewModelType: CellViewModelLazyLoadable
-    
+public protocol CollectionViewLazyLoadable: Viewer where ViewModelType: CellViewModelLazyLoadable {
     weak var collectionView: UICollectionView! { get set }
 }
 

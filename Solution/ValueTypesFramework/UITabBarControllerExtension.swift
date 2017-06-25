@@ -21,8 +21,8 @@ extension UITabBarController
             return
         }
         
-        let titleAttribute: [String: Any] = [
-            NSFontAttributeName: UIFont(name: "PingFang TC", size: 10)!
+        let titleAttribute: [NSAttributedStringKey: Any] = [
+            NSAttributedStringKey.font: UIFont(name: "PingFang TC", size: 10)!
         ]
         
         for item in items

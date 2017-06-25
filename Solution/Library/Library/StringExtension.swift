@@ -20,11 +20,11 @@ extension String {
     subscript (r: Range<Int>) -> String {
         let start = startIndex
         let end = endIndex
-        return self[Range(start..<end)]
+        return String(self[Range(start..<end)])
     }
     
     public init<T>(type: T) {
-        self = "\(type(of: type))"
+        self = "\(Swift.type(of: type))"
     }
     
     public init<T>(type: T.Type) {

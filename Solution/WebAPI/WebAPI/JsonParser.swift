@@ -8,10 +8,8 @@
 
 import Library
 
-public protocol JsonParser: ParserProtocol
+public protocol JsonParser: ParserProtocol where TResult: JsonDeserializeable
 {
-    associatedtype TResult: JsonDeserializeable
-    
     func parseJson(_ url: URL, data: Data?, response: URLResponse?, error: Error?) throws -> TResult
 }
 
