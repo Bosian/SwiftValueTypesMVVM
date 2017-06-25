@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>TableViewLazyLoadable</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/**
+     * tableView 手放開
+     */
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        loadCellData(tableView.indexPathsForVisibleRows, decelerate: decelerate)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        loadCellData(tableView.indexPathsForVisibleRows)
+    }
+    
+    /**
+     * tableView 滑動動畫停止
+     */
+    func tableViewDidEndScroll(_ indexPathArray: [IndexPath]?)
+    {
+        loadCellData(tableView.indexPathsForVisibleRows)
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>E9C3E357-9E8F-4D32-AE38-191E168BC136</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>TableViewLazyLoadable</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

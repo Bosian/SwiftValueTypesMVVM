@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>TouchUpInsideable</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>var index: Int
+    var touchUpInsideHandler: ((_ index: Int, _ info: Any?, _ viewModel: &lt;#Self#&gt;) -&gt; Void)?
+    
+    init(index: Int, touchUpInsideHandler: ((_ index: Int, _ info: Any?, _ viewModel: &lt;#Self#&gt;) -&gt; Void)?)
+    {
+        self.index = index
+        self.touchUpInsideHandler = touchUpInsideHandler
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>904E45EE-7955-484F-A4DD-21ADC5AC8F91</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>TouchUpInsideable</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

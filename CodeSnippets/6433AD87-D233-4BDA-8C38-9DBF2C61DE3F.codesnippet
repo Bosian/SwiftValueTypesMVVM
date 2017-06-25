@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>GoogleAnalyticsable</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// === GoogleAnalyticsable ===
+    
+    /// 是否略過此頁之前的GA字串
+    var isSkipGABeforeCurrent: Bool = false
+    
+    /// Google 分析 目前畫面名稱
+    var gaScreenName: String = ""
+    
+    /// 點擊的Cell Title
+    var gaTappedCellTitles: [String] = []
+    
+    // === GoogleAnalyticsable ===
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Google 分析 傳送所在畫面分析
+        sendGoogleAnalyticsScreenTrack()
+    }
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>6433AD87-D233-4BDA-8C38-9DBF2C61DE3F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>GoogleAnalyticsable</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>handler</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>let indexPath: IndexPath
+    let &lt;#switch#&gt;Handler: (_ indexPath: IndexPath, _ oldValue: &lt;#Any?#&gt;, _ newValue: &lt;#Any?#&gt;, _ viewModel: &lt;#Self#&gt;) -&gt; Void
+    
+    init(indexPath: IndexPath,
+         &lt;#switch#&gt;Handler: @escaping (_ indexPath: IndexPath, _ oldValue: &lt;#Any?#&gt;, _ newValue: &lt;#Any?#&gt;, _ viewModel: &lt;#Self#&gt;) -&gt; Void
+        )
+    {
+        self.indexPath = indexPath
+        self.&lt;#switch#&gt;Handler = &lt;#switch#&gt;Handler
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>179D4B4F-C7BC-4E0A-B0D8-A05BF41AA884</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Handler</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

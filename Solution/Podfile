@@ -1,0 +1,36 @@
+platform :ios, '9.0'
+use_frameworks!
+swift_version = "3.0"
+
+workspace 'POPMVVM.xcworkspace'
+
+def shared
+    pod 'PromiseKit', '~> 4.0'
+end
+
+target 'POPMVVM' do
+    project 'POPMVVM.xcodeproj'
+    shared
+    
+    target 'POPMVVMTests' do
+        inherit! :search_paths
+    end
+    
+    target 'POPMVVMUITests' do
+        inherit! :search_paths
+    end
+    
+end
+
+target 'WebAPI' do
+    project 'WebAPI/WebAPI.xcodeproj'
+    
+    pod 'PromiseKit', '~> 4.0'
+    
+    target 'WebAPITests' do
+        project 'WebAPI/WebAPI.xcodeproj'
+        
+    end
+end
+
+

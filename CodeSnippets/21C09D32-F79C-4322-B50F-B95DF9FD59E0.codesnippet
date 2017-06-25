@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>TextFieldChangeable</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>var index: Int
+    var textFieldChangeHandler: ((_ index: Int, _ info: String?, _ viewModel: &lt;#Self#&gt;) -&gt; &lt;#Self#&gt;)?
+    
+    init(index: Int, textFieldChangeHandler: ((_ index: Int, _ info: String?, _ viewModel: &lt;#Self#&gt;) -&gt; &lt;#Self#&gt;)?)
+    {
+        self.index = index
+        self.textFieldChangeHandler = textFieldChangeHandler
+    }
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>21C09D32-F79C-4322-B50F-B95DF9FD59E0</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>TextFieldChangeable</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

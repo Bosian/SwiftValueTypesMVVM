@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>SelectedIndexChangeable</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>var index: Int
+    var selectedIndex: Int?
+    var isDisplayList: Bool
+    var valueChangeHandler: ((_ index: Int, _ selectedIndex: Int?, _ viewModel: ShopBookingDateCellViewModel) -&gt; Void)?
+    
+    init(index: Int,
+         selectedIndex: Int?,
+         isDisplayList: Bool,
+         valueChangeHandler: @escaping ((_ index: Int, _ selectedIndex: Int?, _ viewModel: ShopBookingDateCellViewModel) -&gt; Void)?
+        )
+    {
+        self.index = index
+        self.selectedIndex = selectedIndex
+        self.isDisplayList = isDisplayList
+        self.valueChangeHandler = valueChangeHandler
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5CC7AACF-09D8-4081-AF1D-E1431CE4C814</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>SelectedIndexChangeable</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

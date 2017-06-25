@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>attribute</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>let attributes1 = [
+            NSForegroundColorAttributeName : UIColor.orange,
+            NSFontAttributeName: UIFont.boldSystemFont(ofSize: 34)
+        ]
+        
+        let attributes2 = [NSForegroundColorAttributeName : UIColor.black]
+        
+        let combination = NSMutableAttributedString()
+        combination.append(NSMutableAttributedString(string: "大人", attributes: attributes2))
+        combination.append(NSMutableAttributedString(string: "00", attributes: attributes1))
+        combination.append(NSMutableAttributedString(string: "位", attributes: attributes2))
+        
+        &lt;#code#&gt;.attributedText = combination</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>EDD335CD-609A-4769-906F-B75E5994CE6A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>attribute</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

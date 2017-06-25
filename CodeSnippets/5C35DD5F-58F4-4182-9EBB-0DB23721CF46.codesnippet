@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>PullToRefreshable</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>@IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupPullToRefresh(selector: #selector(refresh(sender:)))
+    }
+    
+    /// 下拉更新
+    ///
+    /// - Parameter sender: sender description
+    func refresh(sender: UIRefreshControl) {
+        
+        viewModel.refresh(callback: {
+            sender.endRefreshing()
+        })
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5C35DD5F-58F4-4182-9EBB-0DB23721CF46</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>PullToRefreshable</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		378FEA6E1E5ED3C800444EDA /* ReachabilityFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378FEA641E5ED3C800444EDA /* ReachabilityFramework.framework */; };
+		378FEA731E5ED3C800444EDA /* ReachabilityFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 378FEA721E5ED3C800444EDA /* ReachabilityFrameworkTests.m */; };
+		378FEA751E5ED3C800444EDA /* ReachabilityFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 378FEA671E5ED3C800444EDA /* ReachabilityFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		378FEA801E5ED3D300444EDA /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 378FEA7E1E5ED3D300444EDA /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		378FEA811E5ED3D300444EDA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 378FEA7F1E5ED3D300444EDA /* Reachability.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		378FEA6F1E5ED3C800444EDA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 378FEA5B1E5ED3C800444EDA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 378FEA631E5ED3C800444EDA;
+			remoteInfo = ReachabilityFramework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		378FEA641E5ED3C800444EDA /* ReachabilityFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReachabilityFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		378FEA671E5ED3C800444EDA /* ReachabilityFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReachabilityFramework.h; sourceTree = "<group>"; };
+		378FEA681E5ED3C800444EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		378FEA6D1E5ED3C800444EDA /* ReachabilityFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReachabilityFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		378FEA721E5ED3C800444EDA /* ReachabilityFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReachabilityFrameworkTests.m; sourceTree = "<group>"; };
+		378FEA741E5ED3C800444EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		378FEA7E1E5ED3D300444EDA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		378FEA7F1E5ED3D300444EDA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		378FEA601E5ED3C800444EDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		378FEA6A1E5ED3C800444EDA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				378FEA6E1E5ED3C800444EDA /* ReachabilityFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		378FEA5A1E5ED3C800444EDA = {
+			isa = PBXGroup;
+			children = (
+				378FEA661E5ED3C800444EDA /* ReachabilityFramework */,
+				378FEA711E5ED3C800444EDA /* ReachabilityFrameworkTests */,
+				378FEA651E5ED3C800444EDA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		378FEA651E5ED3C800444EDA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				378FEA641E5ED3C800444EDA /* ReachabilityFramework.framework */,
+				378FEA6D1E5ED3C800444EDA /* ReachabilityFrameworkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		378FEA661E5ED3C800444EDA /* ReachabilityFramework */ = {
+			isa = PBXGroup;
+			children = (
+				378FEA7E1E5ED3D300444EDA /* Reachability.h */,
+				378FEA7F1E5ED3D300444EDA /* Reachability.m */,
+				378FEA671E5ED3C800444EDA /* ReachabilityFramework.h */,
+				378FEA681E5ED3C800444EDA /* Info.plist */,
+			);
+			path = ReachabilityFramework;
+			sourceTree = "<group>";
+		};
+		378FEA711E5ED3C800444EDA /* ReachabilityFrameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				378FEA721E5ED3C800444EDA /* ReachabilityFrameworkTests.m */,
+				378FEA741E5ED3C800444EDA /* Info.plist */,
+			);
+			path = ReachabilityFrameworkTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		378FEA611E5ED3C800444EDA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				378FEA751E5ED3C800444EDA /* ReachabilityFramework.h in Headers */,
+				378FEA801E5ED3D300444EDA /* Reachability.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		378FEA631E5ED3C800444EDA /* ReachabilityFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 378FEA781E5ED3C800444EDA /* Build configuration list for PBXNativeTarget "ReachabilityFramework" */;
+			buildPhases = (
+				378FEA5F1E5ED3C800444EDA /* Sources */,
+				378FEA601E5ED3C800444EDA /* Frameworks */,
+				378FEA611E5ED3C800444EDA /* Headers */,
+				378FEA621E5ED3C800444EDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReachabilityFramework;
+			productName = ReachabilityFramework;
+			productReference = 378FEA641E5ED3C800444EDA /* ReachabilityFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		378FEA6C1E5ED3C800444EDA /* ReachabilityFrameworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 378FEA7B1E5ED3C800444EDA /* Build configuration list for PBXNativeTarget "ReachabilityFrameworkTests" */;
+			buildPhases = (
+				378FEA691E5ED3C800444EDA /* Sources */,
+				378FEA6A1E5ED3C800444EDA /* Frameworks */,
+				378FEA6B1E5ED3C800444EDA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				378FEA701E5ED3C800444EDA /* PBXTargetDependency */,
+			);
+			name = ReachabilityFrameworkTests;
+			productName = ReachabilityFrameworkTests;
+			productReference = 378FEA6D1E5ED3C800444EDA /* ReachabilityFrameworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		378FEA5B1E5ED3C800444EDA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Sonet;
+				TargetAttributes = {
+					378FEA631E5ED3C800444EDA = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Manual;
+					};
+					378FEA6C1E5ED3C800444EDA = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8W6454B7RN;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 378FEA5E1E5ED3C800444EDA /* Build configuration list for PBXProject "ReachabilityFramework" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 378FEA5A1E5ED3C800444EDA;
+			productRefGroup = 378FEA651E5ED3C800444EDA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				378FEA631E5ED3C800444EDA /* ReachabilityFramework */,
+				378FEA6C1E5ED3C800444EDA /* ReachabilityFrameworkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		378FEA621E5ED3C800444EDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		378FEA6B1E5ED3C800444EDA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		378FEA5F1E5ED3C800444EDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				378FEA811E5ED3D300444EDA /* Reachability.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		378FEA691E5ED3C800444EDA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				378FEA731E5ED3C800444EDA /* ReachabilityFrameworkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		378FEA701E5ED3C800444EDA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 378FEA631E5ED3C800444EDA /* ReachabilityFramework */;
+			targetProxy = 378FEA6F1E5ED3C800444EDA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		378FEA761E5ED3C800444EDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		378FEA771E5ED3C800444EDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		378FEA791E5ED3C800444EDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ReachabilityFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bobson.ReachabilityFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		378FEA7A1E5ED3C800444EDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ReachabilityFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bobson.ReachabilityFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		378FEA7C1E5ED3C800444EDA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8W6454B7RN;
+				INFOPLIST_FILE = ReachabilityFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bobson.ReachabilityFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		378FEA7D1E5ED3C800444EDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 8W6454B7RN;
+				INFOPLIST_FILE = ReachabilityFrameworkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bobson.ReachabilityFrameworkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		378FEA5E1E5ED3C800444EDA /* Build configuration list for PBXProject "ReachabilityFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				378FEA761E5ED3C800444EDA /* Debug */,
+				378FEA771E5ED3C800444EDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		378FEA781E5ED3C800444EDA /* Build configuration list for PBXNativeTarget "ReachabilityFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				378FEA791E5ED3C800444EDA /* Debug */,
+				378FEA7A1E5ED3C800444EDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		378FEA7B1E5ED3C800444EDA /* Build configuration list for PBXNativeTarget "ReachabilityFrameworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				378FEA7C1E5ED3C800444EDA /* Debug */,
+				378FEA7D1E5ED3C800444EDA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 378FEA5B1E5ED3C800444EDA /* Project object */;
+}

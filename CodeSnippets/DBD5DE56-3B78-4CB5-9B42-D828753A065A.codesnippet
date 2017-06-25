@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>LoginFlowable</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/**
+     * 是否在登入流程中 (登入流程及一般頁面顯示有所不同時可供判斷)
+     */
+    var isLoginFlow: Bool = false
+    
+    /**
+     * 是否隱藏 NavigationBar
+     */
+    var isNavigationBarHidden: Bool {
+        return &lt;#false#&gt;
+    }
+    
+    /**
+     * 是否隱藏 Back Button
+     */
+    var isHiddenBack: Bool {
+        return &lt;#false#&gt;
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>DBD5DE56-3B78-4CB5-9B42-D828753A065A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>LoginFlowable</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

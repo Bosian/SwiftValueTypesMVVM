@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>fakeWebAPIJson</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> #if DEBUG
+    public func parse(nsUrl: NSURL, data: NSData?, response: NSURLResponse?, error: NSError?) -&gt; TResult? {
+        
+        let jsonString = "&lt;#{\"resultCode\":200,\"resultMsg\":\"\",\"mrt\":[{\"city\":{\"id\":1,\"name\":\"台北市\"},\"line\":[{\"id\":1,\"color\":\"#FFFFFF\",\"name\":\"板南線\",\"station\":[{\"id\":1,\"name\":\"國父紀念館\"},{\"id\":2,\"name\":\"市政府\"},{\"id\":3,\"name\":\"永春\"},{\"id\":4,\"name\":\"後山埤\"},{\"id\":5,\"name\":\"昆陽\"},{\"id\":6,\"name\":\"南港\"}]},{\"id\":2,\"color\":\"#FFFFFF\",\"name\":\"中和新蘆線\",\"station\":[{\"id\":1,\"name\":\"南勢角\"},{\"id\":2,\"name\":\"景平\"},{\"id\":3,\"name\":\"一站\"},{\"id\":4,\"name\":\"二站\"}]}]},{\"city\":{\"id\":2,\"name\":\"台中\"},\"line\":[{\"id\":1,\"color\":\"#FFFFFF\",\"name\":\"台中一線\",\"station\":[{\"id\":1,\"name\":\"第一站\"},{\"id\":2,\"name\":\"第二站\"},{\"id\":3,\"name\":\"第三站\"}]}]}],\"category\":[{\"main\":{\"id\":1,\"name\":\"美食\"},\"sub\":[{\"id\":1,\"name\":\"中式料理\"},{\"id\":2,\"name\":\"日式料理\"},{\"id\":3,\"name\":\"韓式料理\"}]},{\"main\":{\"id\":2,\"name\":\"休閒娛樂\"},\"sub\":[{\"id\":1,\"name\":\"夜店\"},{\"id\":2,\"name\":\"高爾夫球場\"},{\"id\":3,\"name\":\"電影院\"}]}],\"location\":[{\"city\":{\"id\":1,\"name\":\"台北市\"},\"area\":[{\"id\":1,\"name\":\"台北車站\"},{\"id\":2,\"name\":\"士林夜市\"},{\"id\":3,\"name\":\"西門町\"},{\"id\":4,\"name\":\"永康商圈\"}]},{\"city\":{\"id\":2,\"name\":\"新北市\"},\"area\":[{\"id\":1,\"name\":\"板橋車站\"},{\"id\":2,\"name\":\"南雅夜市\"},{\"id\":3,\"name\":\"南勢角夜市\"}]}],\"service\":[{\"id\":1,\"name\":\"Free Wi-Fi\"},{\"id\":2,\"name\":\"接受信用卡\"}],\"requirement\":[{\"id\":1,\"name\":\"兒童座椅\"},{\"id\":2,\"name\":\"攜帶寵物\"}]}#&gt;"
+        return TResult.init(jsonString: jsonString)
+        
+    }
+    #endif</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9E75C22A-A7E2-461B-A08A-579AF9782C93</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>FakeWebAPIJson</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

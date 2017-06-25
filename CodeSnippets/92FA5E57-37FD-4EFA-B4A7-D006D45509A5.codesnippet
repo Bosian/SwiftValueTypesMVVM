@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>singleton</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>struct &lt;#ListDataManager#&gt; {
+    private(set) static var shared = &lt;#ListDataManager#&gt;()
+    
+    private init()
+    {
+        
+    }
+    
+    mutating func setup(&lt;#parameter: ParameterType#&gt;)
+    {
+        &lt;#code#&gt;
+        
+        &lt;#ListDataManager#&gt;.shared = self
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>92FA5E57-37FD-4EFA-B4A7-D006D45509A5</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Singleton</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

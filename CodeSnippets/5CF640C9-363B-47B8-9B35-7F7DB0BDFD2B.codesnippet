@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>RowTypes</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>/**
+     Cell類型
+     
+     - shopName:      店名
+     - largeCategory: 大類別
+     - smallCategory: 小類別
+     - cityLocation:  縣市區域
+     - areaLocation:  鄉鎮區域
+     - service:       提供服務
+     - requirement:   特殊需求
+     */
+    enum RowTypes: StringConvertable, ValueRepresentable {
+        
+        case &lt;#shopName#&gt;(SearchShopNameCellViewModel)
+        case largeCategory(SearchLargeCategoryCellViewModel)
+        case smallCategory(SearchSmallCategoryCellViewModel)
+        case cityLocation(SearchCityLocationCellViewModel)
+        case areaLocation(SearchAreaLocationCellViewModel)
+        case service(SearchServiceCellViewModel)
+        case requirement(SearchRequirementCellViewModel)
+        
+        func toString() -&gt; String
+        {
+            switch self{
+            case .shopName(_):
+                return "shopName"
+                
+            case .largeCategory(_):
+                return "largeCategory"
+                
+            case .smallCategory(_):
+                return "smallCategory"
+                
+            case .cityLocation(_):
+                return "cityLocation"
+                
+            case .areaLocation(_):
+                return "areaLocation"
+                
+            case .service(_):
+                return "service"
+                
+            case .requirement(_):
+                return "requirement"
+            }
+        }
+        
+        typealias ValueType = Any?
+        var value: ValueType {
+            
+            switch self{
+            case .shopName(let value):
+                return value
+                
+            case .largeCategory(let value):
+                return value
+                
+            case .smallCategory(let value):
+                return value
+                
+            case .cityLocation(let value):
+                return value
+                
+            case .areaLocation(let value):
+                return value
+                
+            case .service(let value):
+                return value
+                
+            case .requirement(let value):
+                return value
+                
+            }
+        }
+    }
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>5CF640C9-363B-47B8-9B35-7F7DB0BDFD2B</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>RowTypes</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

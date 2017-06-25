@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>registerCellNib</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>let cellNib = UINib(nibName: "\(&lt;#StoreListNormal#&gt;.self)", bundle: nil)
+        tableView.delegate = self
+        tableView.register(cellNib, forCellReuseIdentifier: "&lt;#cell#&gt;")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 85
+        tableView.contentInset.top = 10
+        tableView.contentInset.bottom = (self.tabBarController?.tabBar.frame.height) ?? 0</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>D3D513C5-2574-4AC1-89E3-1AE04441F60F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Register nib for TableView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

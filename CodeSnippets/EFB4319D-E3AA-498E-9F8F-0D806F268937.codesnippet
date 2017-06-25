@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>CellViewModelLazyLoadable</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>    func tableViewDidEndScroll(_ indexPathArray: [IndexPath])
+    {
+        let copySelf = self
+        
+        for indexPath in indexPathArray where !cellViewModels[indexPath.&lt;#row#&gt;].isImageDownloading
+        {
+            print("滑動動畫停止(Download Image): \(indexPath.&lt;#row#&gt;)")
+            
+            copySelf.mutating { $0.cellViewModels[indexPath.&lt;#row#&gt;].isImageDownloading = true }
+            
+            let url = cellViewModels[indexPath.&lt;#row#&gt;].imageUrl
+            let task = Utilities.downloadImageAsync(url, callback: { (image, error) in
+                copySelf.mutating { $0.cellViewModels[indexPath.&lt;#row#&gt;].image = image }
+            })
+            
+            task?.resume()
+        }
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>EFB4319D-E3AA-498E-9F8F-0D806F268937</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>CellViewModelLazyLoadable</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

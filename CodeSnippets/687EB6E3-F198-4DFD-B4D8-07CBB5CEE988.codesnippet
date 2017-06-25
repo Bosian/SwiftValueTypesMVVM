@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>WebAPI</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>CodeBlock</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>let webAPI = &lt;#SendSearch#&gt;WebAPI()
+        var parameter = &lt;#SendSearch#&gt;Parameter()
+        
+        parameter&lt;#.name = "Unit Test"#&gt;
+        
+        webAPI.invoke(parameter, failCallback: { (failModel, callbackDelegate) in
+            
+            guard var mutatingSelf = self.closureForViewModel() else {
+                return
+            }
+            
+            mutatingSelf.isUpdate = false
+            
+            self.setClosure(for: mutatingSelf)
+            
+            callbackDelegate?.failCallback(failModel)
+            
+        }) { (model, callbackDelegate) in
+            
+            guard var mutatingSelf = self.closureForViewModel() else {
+                return
+            }
+            
+            callbackDelegate?.successCallback(model)
+            
+            mutatingSelf.isUpdate = false
+            &lt;#code#&gt;
+            
+            self.setClosure(for: mutatingSelf)
+        }
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>687EB6E3-F198-4DFD-B4D8-07CBB5CEE988</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>WebAPI</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
