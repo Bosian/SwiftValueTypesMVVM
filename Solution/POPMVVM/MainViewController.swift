@@ -132,12 +132,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let id = "cell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)
-        
-        if let binder = cell as? Binder
-        {
-            binder.dataContext = viewModel.cellViewModels[indexPath.row]
-        }
+        let cell: UITableViewCell & Binder = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! Binder & UITableViewCell
+        cell.dataContext = viewModel.cellViewModels[indexPath.row]
         
         return cell
     }
