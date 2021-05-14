@@ -1,11 +1,11 @@
-platform :ios, '9.0'
+platform :ios, '13.0'
 use_frameworks!
-swift_version = "3.0"
+swift_version = "5.0"
 
 workspace 'POPMVVM.xcworkspace'
 
 def shared
-    pod 'PromiseKit', '~> 4.0'
+    promiseKit
 end
 
 target 'POPMVVM' do
@@ -25,7 +25,7 @@ end
 target 'WebAPI' do
     project 'WebAPI/WebAPI.xcodeproj'
     
-    pod 'PromiseKit', '~> 4.0'
+    promiseKit
     
     target 'WebAPITests' do
         project 'WebAPI/WebAPI.xcodeproj'
