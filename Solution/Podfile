@@ -2,6 +2,8 @@ platform :ios, '13.0'
 use_frameworks!
 swift_version = "5.0"
 
+inhibit_all_warnings!
+
 workspace 'POPMVVM.xcworkspace'
 
 def shared
