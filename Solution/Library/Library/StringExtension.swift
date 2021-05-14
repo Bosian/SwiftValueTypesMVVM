@@ -20,11 +20,11 @@ extension String {
     subscript (r: Range<Int>) -> String {
         let start = startIndex
         let end = endIndex
-        return self[Range(start..<end)]
+        return String(self[start..<end])
     }
     
     public init<T>(type: T) {
-        self = "\(type(of: type))"
+        self = "\(T.self)"
     }
     
     public init<T>(type: T.Type) {
@@ -238,7 +238,7 @@ extension String {
      */
     public func isLength(_ count: Int) -> Bool
     {
-        return self.characters.count == count
+        return self.count == count
     }
     
     /**

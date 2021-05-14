@@ -14,14 +14,14 @@ extension UIColor {
         
         // 有無#
         let skipStartIndex = hexString.hasPrefix("#") ? 1 : 0
-        let start = hexString.characters.index(hexString.startIndex, offsetBy: skipStartIndex)
-        var hexColor = hexString.substring(from: start)
+        let start = hexString.index(hexString.startIndex, offsetBy: skipStartIndex)
+        var hexColor = String(hexString[start...])
         
-        if hexColor.characters.count == 6 {
+        if hexColor.count == 6 {
             hexColor = "FF\(hexColor)"
         }
         
-        if hexColor.characters.count == 8 {
+        if hexColor.count == 8 {
             let scanner = Scanner(string: hexColor)
             var hexNumber: UInt64 = 0
             

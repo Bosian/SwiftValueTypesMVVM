@@ -52,7 +52,7 @@ extension HttpPost
         request.httpBody = httpBody.data(using: .utf8)
         
         #if FAKE
-            return Promise<TResult>(resolvers: { (resolve, reject) in
+            return Promise<TResult>(resolver: { (resolver) in
                 DispatchQueue.global().async {
                     let response = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
                     print("http statusCode: \(response?.statusCode ?? -1)")
@@ -61,14 +61,14 @@ extension HttpPost
                         let response = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
                         var result = try TParser().parse(self.url, data: nil, response: response, error: nil) as! TResult
                         result.response = response
-                        resolve(result)
+                        resolver.fulfill(result)
                     } catch let error {
-                        reject(error)
+                        resolver.reject(error)
                     }
                 }
             })
         #else
-            return Promise<TResult>(resolvers: { (resolve, reject) in
+            return Promise<TResult>(resolver: { (resolver) in
                 let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                     
                     let response = response as? HTTPURLResponse
@@ -84,11 +84,11 @@ extension HttpPost
                             throw WebAPIError<TResult>.fail(result)
                         }
                         
-                        resolve(result)
+                        resolver.fulfill(result)
                         
                     } catch let error {
                         
-                        reject(error)
+                        resolver.reject(error)
                         
                         // 是否在發生錯誤時，在最後呼叫共用的全域錯誤處理
                         guard self.globalErrorConfig.isEnable else {

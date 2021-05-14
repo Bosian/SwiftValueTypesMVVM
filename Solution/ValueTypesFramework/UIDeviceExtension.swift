@@ -13,7 +13,7 @@ public extension UIDevice {
     /**
      * 取得iDevice的產品名稱
      */
-    public var modelName: String {
+    var modelName: String {
         
         var systemInfo = utsname()
         

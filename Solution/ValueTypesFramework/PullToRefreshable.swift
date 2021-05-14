@@ -8,9 +8,9 @@
 
 import UIKit
 
-public protocol PullToRefreshable: class {
+public protocol PullToRefreshable: AnyObject {
     
-    weak var tableView: UITableView! { get }
+    var tableView: UITableView! { get }
     
     func setupPullToRefresh(selector: Selector, attributedTitle: NSAttributedString)
     func refresh(sender: UIRefreshControl)

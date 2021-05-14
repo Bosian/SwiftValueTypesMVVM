@@ -10,5 +10,5 @@ import UIKit
 
 public protocol ViewControllerDelegate {
     associatedtype ViewControllerType: UIViewController
-    weak var viewController: ViewControllerType? { get }
+    var viewController: ViewControllerType? { get }
 }

@@ -9,10 +9,8 @@
 import Library
 import PromiseKit
 
-public protocol HttpPostWithJson: WebAPIProtocol
+public protocol HttpPostWithJson: WebAPIProtocol where TParameter: JsonSerializeable
 {
-    associatedtype TParameter: JsonSerializeable
-    
     /**
      * Http Post with Raw Json
      */
@@ -60,7 +58,7 @@ extension HttpPostWithJson
         }
         
         #if FAKE
-            return Promise<TResult>(resolvers: { (resolve, reject) in
+            return Promise<TResult>(resolver: { (resolver) in
                 DispatchQueue.global().async {
                     let response = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
                     print("http statusCode: \(response?.statusCode ?? -1)")
@@ -69,14 +67,14 @@ extension HttpPostWithJson
                         let response = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
                         var result = try TParser().parse(self.url, data: nil, response: response, error: nil) as! TResult
                         result.response = response
-                        resolve(result)
+                        resolver.fulfill(result)
                     } catch let error {
-                        reject(error)
+                        resolver.resolver.reject(error)
                     }
                 }
             })
         #else
-            return Promise<TResult>(resolvers: { (resolve, reject) in
+            return Promise<TResult>(resolver: { (resolver) in
                 let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                     
                     let response = response as? HTTPURLResponse
@@ -87,13 +85,13 @@ extension HttpPostWithJson
                         result.response = response
                         
                         guard result.isSuccess else {
-                            reject(WebAPIError<TResult>.fail(result))
+                            resolver.reject(WebAPIError<TResult>.fail(result))
                             return
                         }
                         
-                        resolve(result)
+                        resolver.fulfill(result)
                     } catch let error {
-                        reject(error)
+                        resolver.reject(error)
                     }
                 })
                 

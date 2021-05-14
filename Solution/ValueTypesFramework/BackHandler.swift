@@ -11,7 +11,7 @@ import UIKit
 /**
  *  回首頁
  */
-public protocol BackHandler: class {
+public protocol BackHandler: AnyObject {
     
     var backTitle: String { get set }
     
@@ -33,7 +33,7 @@ extension BackHandler where Self: UIViewController
         }
         
         set {
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: newValue, style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: newValue, style: UIBarButtonItem.Style.plain, target: nil, action: nil)
         }
     }
     

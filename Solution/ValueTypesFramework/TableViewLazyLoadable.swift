@@ -8,11 +8,8 @@
 
 import UIKit
 
-public protocol TableViewLazyLoadable: Viewer {
-    
-    associatedtype ViewModelType: CellViewModelLazyLoadable
-    
-    weak var tableView: UITableView! { get set }
+public protocol TableViewLazyLoadable: Viewer where ViewModelType: CellViewModelLazyLoadable {
+    var tableView: UITableView! { get set }
 }
 
 extension TableViewLazyLoadable

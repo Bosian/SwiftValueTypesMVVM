@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol Progressor: class {
+public protocol Progressor: AnyObject {
     
     /**
      顯示更新中

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol Keyboarder: class {
+public protocol Keyboarder: AnyObject {
     
     /**
      * 鍵盤是否已顯示
@@ -71,15 +71,15 @@ extension Keyboarder where Self: UIViewController
     {
         let notificationCenter = NotificationCenter.default
         
-        observerForKeyboardWillShowNotification = notificationCenter.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: nil) { [weak self] (notification) in
+        observerForKeyboardWillShowNotification = notificationCenter.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil) { [weak self] (notification) in
             self?.keyboardWillShow(notification)
         }
         
-        observerForKeyboardDidShowNotification = notificationCenter.addObserver(forName: NSNotification.Name.UIKeyboardDidShow, object: nil, queue: nil) { [weak self] (notification) in
+        observerForKeyboardDidShowNotification = notificationCenter.addObserver(forName: UIResponder.keyboardDidShowNotification, object: nil, queue: nil) { [weak self] (notification) in
             self?.keyboardDidShow(notification)
         }
         
-        observerForKeyboardWillHideNotification = notificationCenter.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: nil) { [weak self] (notification) in
+        observerForKeyboardWillHideNotification = notificationCenter.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil) { [weak self] (notification) in
             self?.keyboardWillHide(notification)
         }
         
@@ -121,11 +121,11 @@ extension Keyboarder where Self: UIViewController
             return
         }
         
-        guard let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval else {
+        guard let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else {
             return
         }
         
-        guard let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+        guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
         
@@ -141,7 +141,7 @@ extension Keyboarder where Self: UIViewController
             }
             
             scrollView.contentInset.bottom = weakSelf.scrollViewOriginalContentInset.bottom + keyboardFrame.size.height
-            scrollView.scrollIndicatorInsets.bottom = scrollView.contentInset.bottom
+            scrollView.verticalScrollIndicatorInsets.bottom = scrollView.contentInset.bottom
         })
         
         isKeyboardShown = true
@@ -171,7 +171,7 @@ extension Keyboarder where Self: UIViewController
             return
         }
         
-        guard let duration = keyboardAnimationDetail[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval else {
+        guard let duration = keyboardAnimationDetail[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else {
             return
         }
         
@@ -182,7 +182,7 @@ extension Keyboarder where Self: UIViewController
             }
 
             scrollView.contentInset.bottom = weakSelf.scrollViewOriginalContentInset.bottom
-            scrollView.scrollIndicatorInsets.bottom = scrollView.contentInset.bottom
+            scrollView.verticalScrollIndicatorInsets.bottom = scrollView.contentInset.bottom
         })
     }
     

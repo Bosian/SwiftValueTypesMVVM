@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol Binder: class {
+public protocol Binder: AnyObject {
     var dataContext: Any? { get set }
 }
 
@@ -19,7 +19,7 @@ extension Binder where Self: Viewer {
         }
         
         set {
-            viewModel = newValue as! ViewModelType
+            viewModel = newValue as? ViewModelType
         }
     }
 }

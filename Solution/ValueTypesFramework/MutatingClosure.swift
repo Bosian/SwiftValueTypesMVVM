@@ -10,7 +10,7 @@ import UIKit
 
 /// 可在Value types 的 closure 中取得最新的ViewModel並修改回ViewController
 public protocol MutatingClosure {
-    weak var binder: Binder? { get }
+    var binder: Binder? { get }
     
     func mutating(_ closurue: (_ mutatingSelf: inout Self) -> Void) -> Void
     

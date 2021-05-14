@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol UIStateHandler: class {
+protocol UIStateHandler: AnyObject {
     
     associatedtype ViewType
     associatedtype ValueType: Equatable

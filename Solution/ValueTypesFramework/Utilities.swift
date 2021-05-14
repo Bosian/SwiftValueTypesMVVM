@@ -187,7 +187,7 @@ extension Utilities
         alert.addAction(UIAlertAction(title: "Yes".localize(), style: .default, handler: { (action) -> Void in
             
             // 撥打
-            application.openURL(phoneCallURL)
+            application.open(phoneCallURL)
             
         }))
         
@@ -206,7 +206,7 @@ extension Utilities
             return
         }
         
-        UIApplication.shared.openURL(url)
+        UIApplication.shared.open(url)
     }
     
     /**
@@ -218,7 +218,7 @@ extension Utilities
             return
         }
         
-        UIApplication.shared.openURL(url)
+        UIApplication.shared.open(url)
     }
     
     /**
@@ -230,7 +230,7 @@ extension Utilities
             return
         }
         
-        UIApplication.shared.openURL(url)
+        UIApplication.shared.open(url)
     }
     
     /**

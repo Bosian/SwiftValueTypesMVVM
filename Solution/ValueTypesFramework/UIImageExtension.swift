@@ -74,7 +74,7 @@ extension UIImage {
      */
     public func toBase64() -> String?
     {
-        let pngData = UIImagePNGRepresentation(self)
+        let pngData = self.pngData()
         let base64 = pngData?.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         
         return base64
@@ -109,7 +109,7 @@ extension UIImage {
      */
     public func toPNGData() -> Data?
     {
-        return UIImagePNGRepresentation(self)
+        return self.pngData()
     }
 
     /**
@@ -117,7 +117,7 @@ extension UIImage {
      */
     public func toJPGData(_ compressionQuality: CGFloat) -> Data?
     {
-        return UIImageJPEGRepresentation(self, compressionQuality)
+        return self.jpegData(compressionQuality: compressionQuality)
     }
     
     /**
@@ -125,7 +125,7 @@ extension UIImage {
      */
     public func rotateImage() -> UIImage {
         
-        if (self.imageOrientation == UIImageOrientation.up ) {
+        if (self.imageOrientation == UIImage.Orientation.up ) {
             return self
         }
         

@@ -37,12 +37,12 @@ extension UIButton {
      */
     @IBInspectable public var imageMode: Int {
         get {
-            return self.imageView?.contentMode.rawValue ?? UIViewContentMode.scaleAspectFill.rawValue
+            return self.imageView?.contentMode.rawValue ?? UIView.ContentMode.scaleAspectFill.rawValue
         }
         
         set {
             
-            guard let mode = UIViewContentMode(rawValue: newValue) else {
+            guard let mode = UIView.ContentMode(rawValue: newValue) else {
                 return
             }
             

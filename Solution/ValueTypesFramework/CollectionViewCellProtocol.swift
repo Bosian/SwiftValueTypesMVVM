@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol CollectionViewCellProtocol: class {
-    weak var pageViewController: UIViewController? { get }
-    weak var collectionView: UICollectionView? { get }
+protocol CollectionViewCellProtocol: AnyObject {
+    var pageViewController: UIViewController? { get }
+    var collectionView: UICollectionView? { get }
 }
 
 extension CollectionViewCellProtocol where Self: UICollectionViewCell

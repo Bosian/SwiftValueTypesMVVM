@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol Viewer: class, Binder
+public protocol Viewer: Binder
 {
     associatedtype ViewModelType
     var viewModel: ViewModelType! { get set }

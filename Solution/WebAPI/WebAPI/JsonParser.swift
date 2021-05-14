@@ -8,10 +8,8 @@
 
 import Library
 
-public protocol JsonParser: ParserProtocol
+public protocol JsonParser: ParserProtocol where TResult: JsonDeserializeable
 {
-    associatedtype TResult: JsonDeserializeable
-    
     func parseJson(_ url: URL, data: Data?, response: URLResponse?, error: Error?) throws -> TResult
 }
 
@@ -61,7 +59,7 @@ extension JsonParser
     #if DEBUG
     public func debugPrint(url: URL, data: Data, jsonString: String)
     {
-        let transform = "Any-Hex/Java" as CFString!
+        let transform = "Any-Hex/Java" as CFString?
         let convertedString = jsonString.mutableCopy() as! NSMutableString
         CFStringTransform(convertedString, nil, transform, true)
         

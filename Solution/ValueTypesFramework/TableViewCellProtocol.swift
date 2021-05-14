@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol TableViewCellProtocol: class {
-    weak var pageViewController: UIViewController? { get }
-    weak var tableView: UITableView? { get }
+protocol TableViewCellProtocol: AnyObject {
+    var pageViewController: UIViewController? { get }
+    var tableView: UITableView? { get }
 }
 
 extension TableViewCellProtocol where Self: UITableViewCell

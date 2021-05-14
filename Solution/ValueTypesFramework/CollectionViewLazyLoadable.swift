@@ -8,11 +8,8 @@
 
 import UIKit
 
-public protocol CollectionViewLazyLoadable: Viewer {
-    
-    associatedtype ViewModelType: CellViewModelLazyLoadable
-    
-    weak var collectionView: UICollectionView! { get set }
+public protocol CollectionViewLazyLoadable: Viewer where ViewModelType: CellViewModelLazyLoadable {
+    var collectionView: UICollectionView! { get set }
 }
 
 extension CollectionViewLazyLoadable

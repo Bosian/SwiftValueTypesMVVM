@@ -11,7 +11,7 @@ import UIKit
 /**
  * 可以被LoginFlowManager顯示的 UIViewController
  */
-public protocol LoginFlowable: class {
+public protocol LoginFlowable: AnyObject {
     
     /**
      * 是否在登入流程中 (登入流程及一般頁面顯示有所不同時可供判斷)
