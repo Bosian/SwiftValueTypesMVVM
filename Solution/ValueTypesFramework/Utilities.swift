@@ -47,12 +47,20 @@ extension Utilities
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
     }
     
+    /// 取得KeyWindow
+    public static var keyWindow: UIWindow? {
+        let scene = UIApplication.shared.connectedScenes.first { $0 is UIWindowScene }
+        let windowScene = scene as? UIWindowScene
+        let window = windowScene?.windows.first(where: \.isKeyWindow)
+        return window
+    }
+
     /**
      * 取得目前作用中的ViewController
      */
     public static var currentViewController: UIViewController?
     {
-        guard let parentViewController = UIApplication.shared.keyWindow?.rootViewController else {
+        guard let parentViewController = keyWindow?.rootViewController else {
             return nil
         }
         

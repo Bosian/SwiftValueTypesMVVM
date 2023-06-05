@@ -61,6 +61,10 @@ class MainViewController: UIViewController, Viewer, Keyboarder, UITextFieldDeleg
      * 鍵盤將隱藏 Register Object
      */
     var observerForKeyboardWillHideNotification: NSObjectProtocol?
+
+    var observerForKeyboardDidHideNotification: NSObjectProtocol?
+    var observerForKeyboardWillChangeFrameNotification: NSObjectProtocol?
+    var observerForKeyboardDidChangeFrameNotification: NSObjectProtocol?
     
     deinit {
         unRegisterKeyboard()

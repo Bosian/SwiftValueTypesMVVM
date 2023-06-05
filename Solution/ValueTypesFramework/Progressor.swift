@@ -30,7 +30,6 @@ extension Progressor where Self: UIViewController
      */
     public func showNetworkProgress(_ viewModel: Updateable)
     {
-        // StatusBar上的網路圖示動畫
-        UIApplication.shared.isNetworkActivityIndicatorVisible = viewModel.isUpdate.value
+
     }
 }

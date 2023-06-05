@@ -20,9 +20,5 @@ extension Locale {
     public static var jp: Locale {
         return Locale(identifier: "ja_JP")
     }
-    
-    public var currency: Currency {
-        return Currency(rawValue: self.currencyCode ?? "") ?? .usd
-    }
 }
 
