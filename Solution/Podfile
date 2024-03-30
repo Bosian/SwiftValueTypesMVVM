@@ -1,4 +1,4 @@
-platform :ios, '13.0'
+platform :ios, '17.0'
 use_frameworks!
 swift_version = "5.0"
 
@@ -19,7 +19,7 @@ post_install do |installer|
             end
 
             # Align the development target in pod targets
-            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+            config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '17.0'
             config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
         end
     end
