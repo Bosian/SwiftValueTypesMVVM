@@ -7,27 +7,22 @@
 //
 
 import Library
-import PromiseKit
 
-public protocol HttpPostWithJson: WebAPIProtocol where TParameter: JsonSerializeable
-{
-    /**
-     * Http Post with Raw Json
-     */
-    func postWithJson(_ parameter: TParameter) -> Promise<TResult>
+public protocol HttpPostWithJson: WebAPIProtocol where TParameter: JsonSerializeable {
+    
 }
 
 extension HttpPostWithJson
 {
-    public func invokeAsync(_ parameter: TParameter) -> Promise<TResult>
+    public func invokeAsync(_ parameter: TParameter) async throws -> TResult
     {
-        return postWithJson(parameter)
+        return try await postWithJson(parameter)
     }
     
     /**
      * Http Post with Raw Json
      */
-    public func postWithJson(_ parameter: TParameter) -> Promise<TResult>
+    public func postWithJson(_ parameter: TParameter) async throws -> TResult
     {
         print("\r\n\r\nurl(\(type(of: self))): \(url.description)")
         
@@ -57,46 +52,35 @@ extension HttpPostWithJson
             request.httpBody = httpBody.data(using: .utf8)
         }
         
-        #if FAKE
-            return Promise<TResult>(resolver: { (resolver) in
-                DispatchQueue.global().async {
-                    let response = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
-                    print("http statusCode: \(response?.statusCode ?? -1)")
-                    
-                    do {
-                        let response = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
-                        var result = try TParser().parse(self.url, data: nil, response: response, error: nil) as! TResult
-                        result.response = response
-                        resolver.fulfill(result)
-                    } catch let error {
-                        resolver.resolver.reject(error)
-                    }
-                }
-            })
-        #else
-            return Promise<TResult>(resolver: { (resolver) in
-                let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-                    
-                    let response = response as? HTTPURLResponse
-                    print("http statusCode: \(response?.statusCode ?? -1)")
-                    
-                    do {
-                        var result = try TParser().parse(self.url, data: data, response: response, error: error) as! TResult
-                        result.response = response
-                        
-                        guard result.isSuccess else {
-                            resolver.reject(WebAPIError<TResult>.fail(result))
-                            return
-                        }
-                        
-                        resolver.fulfill(result)
-                    } catch let error {
-                        resolver.reject(error)
-                    }
-                })
-                
-                task.resume()
-            })
-        #endif
+#if FAKE
+        do {
+            let response = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
+            print("http statusCode: \(response?.statusCode ?? -1)")
+            
+            var result = try TParser().parse(self.url, data: nil, response: response, error: nil) as! TResult
+            result.response = response
+            return result
+        } catch {
+            throw error
+        }
+#else
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            let urlRsponse = response as? HTTPURLResponse
+            print("http statusCode: \(urlRsponse?.statusCode ?? -1)")
+            
+            var result = try TParser().parse(self.url, data: data, response: urlRsponse, error: nil) as! TResult
+            result.response = urlRsponse
+            
+            guard result.isSuccess else {
+                throw WebAPIError<TResult>.fail(result)
+            }
+            
+            return result
+        } catch {
+            throw error
+        }
+#endif
     }
 }

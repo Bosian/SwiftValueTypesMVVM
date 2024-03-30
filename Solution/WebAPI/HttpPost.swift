@@ -7,26 +7,19 @@
 //
 
 import Library
-import PromiseKit
 
-public protocol HttpPost: WebAPIProtocol
-{
-    /// Http Post
-    ///
-    /// - Parameter parameter: parameter description
-    /// - Returns: return value description
-    func post(_ parameter: TParameter) -> Promise<TResult>
+public protocol HttpPost: WebAPIProtocol {
 }
 
 extension HttpPost
 {
-    public func invokeAsync(_ parameter: TParameter) -> Promise<TResult>
+    public func invokeAsync(_ parameter: TParameter) async throws -> TResult
     {
-        return post(parameter)
+        return try await post(parameter)
     }
     
     /// Http Post
-    public func post(_ parameter: TParameter) -> Promise<TResult>
+    public func post(_ parameter: TParameter) async throws -> TResult
     {
         print("\r\n\r\nurl(\(type(of: self))): \(url.description)")
         
@@ -51,56 +44,42 @@ extension HttpPost
         
         request.httpBody = httpBody.data(using: .utf8)
         
-        #if FAKE
-            return Promise<TResult>(resolver: { (resolver) in
-                DispatchQueue.global().async {
-                    let response = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
-                    print("http statusCode: \(response?.statusCode ?? -1)")
-                    
-                    do {
-                        let response = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
-                        var result = try TParser().parse(self.url, data: nil, response: response, error: nil) as! TResult
-                        result.response = response
-                        resolver.fulfill(result)
-                    } catch let error {
-                        resolver.reject(error)
-                    }
-                }
-            })
-        #else
-            return Promise<TResult>(resolver: { (resolver) in
-                let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-                    
-                    let response = response as? HTTPURLResponse
-                    print("http statusCode: \(response?.statusCode ?? -1)")
-                    
-                    
-                    do {
-                        
-                        var result = try TParser().parse(self.url, data: data, response: response, error: error) as! TResult
-                        result.response = response
-                        
-                        guard result.isSuccess else {
-                            throw WebAPIError<TResult>.fail(result)
-                        }
-                        
-                        resolver.fulfill(result)
-                        
-                    } catch let error {
-                        
-                        resolver.reject(error)
-                        
-                        // 是否在發生錯誤時，在最後呼叫共用的全域錯誤處理
-                        guard self.globalErrorConfig.isEnable else {
-                            return
-                        }
-                        
-                        self.globalErrorConfig.callbackDelegate?.failCallback(error, alertHandler: self.globalErrorConfig.alertHandler)
-                    }
-                })
-                
-                task.resume()
-            })
-        #endif
+#if FAKE
+        do {
+            let urlResponse = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
+            print("http statusCode: \(urlResponse?.statusCode ?? -1)")
+            
+            var result = try TParser().parse(self.url, data: nil, response: urlResponse, error: nil) as! TResult
+            result.response = urlResponse
+            return result
+        } catch {
+            throw error
+        }
+#else
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            let urlResponse = response as? HTTPURLResponse
+            print("http statusCode: \(urlResponse?.statusCode ?? -1)")
+            
+            var result = try TParser().parse(self.url, data: data, response: urlResponse, error: nil) as! TResult
+            result.response = urlResponse
+            
+            guard result.isSuccess else {
+                throw WebAPIError<TResult>.fail(result)
+            }
+            
+            return result
+            
+        } catch {
+            
+            // 是否在發生錯誤時，呼叫共用的全域錯誤處理
+            if globalErrorConfig.isEnable {
+                globalErrorConfig.callbackDelegate?.failCallback(error, alertHandler: globalErrorConfig.alertHandler)
+            }
+            
+            throw error
+        }
+#endif
     }
 }

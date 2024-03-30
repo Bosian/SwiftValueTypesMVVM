@@ -7,14 +7,8 @@
 //
 
 import Library
-import PromiseKit
 
-public protocol HttpPostWithMultiPartFormData: WebAPIProtocol
-{
-    /**
-     * Content-Type: multipart/form-data
-     */
-    func multiPartFormData(_ parameter: TParameter) -> Promise<TResult>
+public protocol HttpPostWithMultiPartFormData: WebAPIProtocol {
 }
 
 extension HttpPostWithMultiPartFormData
@@ -22,15 +16,15 @@ extension HttpPostWithMultiPartFormData
     /**
      * 預設使用Post 及 FormData QueryString的方式
      */
-    public func invokeAsync(_ parameter: TParameter) -> Promise<TResult>
+    public func invokeAsync(_ parameter: TParameter) async throws -> TResult
     {
-        return multiPartFormData(parameter)
+        return try await multiPartFormData(parameter)
     }
     
     /**
      * Content-Type: multipart/form-data
      */
-    public func multiPartFormData(_ parameter: TParameter) -> Promise<TResult>
+    public func multiPartFormData(_ parameter: TParameter) async throws -> TResult
     {
         print("\r\n\r\nurl(\(type(of: self))): \(url.description)")
         
@@ -52,45 +46,46 @@ extension HttpPostWithMultiPartFormData
         // 取得所有 Int, String 屬性
         for (label, value) in mirrorForModel.children
         {
-            guard let value = Utilities.unwrap(value) else
+            guard let label,
+                  let value = Utilities.unwrap(value) else
             {
                 continue
             }
             
             switch value
             {
-                // 取得所有 Data 屬性
-            case let value as Data:
-                // set upload image, name is the key of image
-                bodyData.append("\(MPboundary)\r\n".data(using: .utf8)!)
-                bodyData.append("Content-Disposition: form-data; name=\"\(label!)\"; filename=\"\(label!).jpg\"\r\n".data(using: .utf8)!)
-                bodyData.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
-                
-                bodyData.append(value)
-                
-                bodyData.append("\r\n".data(using: .utf8)!)
-                
-                
-                // 取得所有 Data array屬性
-            case let dataArray as [Data]:
-                
-                for (index, itemData) in dataArray.enumerated()
-                {
+                    // 取得所有 Data 屬性
+                case let value as Data:
                     // set upload image, name is the key of image
                     bodyData.append("\(MPboundary)\r\n".data(using: .utf8)!)
-                    bodyData.append("Content-Disposition: form-data; name=\"\(label!)\(index)\"; filename=\"\(label!)_\(index).jpg\"\r\n".data(using: .utf8)!)
+                    bodyData.append("Content-Disposition: form-data; name=\"\(label)\"; filename=\"\(label).jpg\"\r\n".data(using: .utf8)!)
                     bodyData.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
                     
-                    bodyData.append(itemData)
+                    bodyData.append(value)
                     
                     bodyData.append("\r\n".data(using: .utf8)!)
-                }
-
-            default:
-                // with other params
-                bodyString += "\(MPboundary)\r\n"
-                bodyString += "Content-Disposition: form-data; name=\"\(label!)\"\r\n\r\n"
-                bodyString += "\(value)\r\n"
+                    
+                    
+                    // 取得所有 Data array屬性
+                case let dataArray as [Data]:
+                    
+                    for (index, itemData) in dataArray.enumerated()
+                    {
+                        // set upload image, name is the key of image
+                        bodyData.append("\(MPboundary)\r\n".data(using: .utf8)!)
+                        bodyData.append("Content-Disposition: form-data; name=\"\(label)\(index)\"; filename=\"\(label)_\(index).jpg\"\r\n".data(using: .utf8)!)
+                        bodyData.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
+                        
+                        bodyData.append(itemData)
+                        
+                        bodyData.append("\r\n".data(using: .utf8)!)
+                    }
+                    
+                default:
+                    // with other params
+                    bodyString += "\(MPboundary)\r\n"
+                    bodyString += "Content-Disposition: form-data; name=\"\(label)\"\r\n\r\n"
+                    bodyString += "\(value)\r\n"
             }
         }
         
@@ -123,47 +118,35 @@ extension HttpPostWithMultiPartFormData
         print("BodySize: \(body.count)")
         print("httpBody(完整):\(String(data: body, encoding: .utf8) ?? "")\r\n")
         
-        #if FAKE
-            return Promise<TResult>(resolver: { (resolver) in
-                DispatchQueue.global().async {
-                    let response = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
-                    print("http statusCode: \(response?.statusCode ?? -1)")
-                    
-                    do {
-                        let response = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
-                        var result = try TParser().parse(self.url, data: nil, response: response, error: nil) as! TResult
-                        result.response = response
-                        resolver.fulfill(result)
-                    } catch let error {
-                        resolver.reject(error)
-                    }
-                }
-            })
-        #else
-            return Promise<TResult>(resolver: { (resolver) in
-                let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-                    
-                    let response = response as? HTTPURLResponse
-                    print("http statusCode: \(response?.statusCode ?? -1)")
-                    
-                    do {
-                        var result = try TParser().parse(self.url, data: data, response: response, error: error) as! TResult
-                        result.response = response
-                        
-                        guard result.isSuccess else {
-                            resolver.reject(WebAPIError<TResult>.fail(result))
-                            return
-                        }
-                        
-                        resolver.fulfill(result)
-                    } catch let error {
-                        resolver.reject(error)
-                    }
-                })
-                
-                task.resume()
-            })
-        #endif
-        
+#if FAKE
+        do {
+            let response = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
+            print("http statusCode: \(response?.statusCode ?? -1)")
+            
+            let urlResponse = HTTPURLResponse(url: self.url, statusCode: 200, httpVersion: "", headerFields: nil)
+            var result = try TParser().parse(self.url, data: nil, response: urlResponse, error: nil) as! TResult
+            result.response = urlResponse
+            return result
+        } catch {
+            throw error
+        }
+#else
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            let urlResponse = response as? HTTPURLResponse
+            print("http statusCode: \(urlResponse?.statusCode ?? -1)")
+            
+            var result = try TParser().parse(self.url, data: data, response: urlResponse, error: nil) as! TResult
+            result.response = urlResponse
+            
+            guard result.isSuccess else {
+                throw WebAPIError<TResult>.fail(result)
+            }
+            
+            return result
+        } catch {
+            throw error
+        }
+#endif
     }
 }

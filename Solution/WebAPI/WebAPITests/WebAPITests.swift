@@ -8,7 +8,6 @@
 
 import XCTest
 import Library
-import PromiseKit
 
 @testable import WebAPI
 
