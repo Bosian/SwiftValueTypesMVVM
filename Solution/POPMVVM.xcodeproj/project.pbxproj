@@ -297,7 +297,6 @@
 				96CA83C01D32305200972ED4 /* Sources */,
 				96CA83C11D32305200972ED4 /* Frameworks */,
 				96CA83C21D32305200972ED4 /* Resources */,
-				91A98FC51BF1EF7EF3FD26BA /* [CP] Embed Pods Frameworks */,
 				96A9A0A11EFFBFCD00A8819A /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -431,24 +430,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		91A98FC51BF1EF7EF3FD26BA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-POPMVVM/Pods-POPMVVM-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-POPMVVM/Pods-POPMVVM-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E7750FD8670DCD333150C802 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
