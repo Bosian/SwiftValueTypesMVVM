@@ -25,12 +25,8 @@ post_install do |installer|
     end
 end
 
-def promiseKit
-    pod 'PromiseKit'
-end
-
 def shared
-    promiseKit
+
 end
 
 target 'POPMVVM' do
@@ -49,8 +45,6 @@ end
 
 target 'WebAPI' do
     project 'WebAPI/WebAPI.xcodeproj'
-    
-    promiseKit
     
     target 'WebAPITests' do
         project 'WebAPI/WebAPI.xcodeproj'
